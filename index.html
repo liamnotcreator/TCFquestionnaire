@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pesquisa Digital</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Fundo decorativo -->
+    <div class="background" aria-hidden="true">
+        <div class="circle circle-purple"></div>
+        <div class="circle circle-blue"></div>
+    </div>
+
+
+    <!-- Aplicação -->
+    <main class="container">
+
+        <!-- Cabeçalho -->
+        <header class="header">
+
+            <div class="logo">
+                ✦
+            </div>
+
+            <h1>
+                Pesquisa Digital
+            </h1>
+
+            <p>
+                Sua opinião ajuda a entender melhor os hábitos digitais.
+            </p>
+
+        </header>
+
+
+        <!-- Card principal -->
+        <section class="card">
+
+
+            <!-- =========================
+                 QUESTIONÁRIO
+            ========================== -->
+
+            <div
+                id="quiz"
+                class="quiz"
+            >
+
+                <!-- Progresso -->
+                <div class="progress-info">
+
+                    <span id="progressText">
+                        Pergunta 1 de 5
+                    </span>
+
+                    <span id="percentage">
+                        20%
+                    </span>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        id="progressBar"
+                        class="progress-bar"
+                    ></div>
+
+                </div>
+
+
+                <!-- Área da pergunta -->
+                <div
+                    id="questionArea"
+                    class="question-area"
+                >
+
+                    <span class="tag">
+                        PESQUISA
+                    </span>
+
+
+                    <h2
+                        id="question"
+                        class="question"
+                    >
+                        Carregando pergunta...
+                    </h2>
+
+
+                    <p
+                        id="help"
+                        class="help"
+                    >
+                        Você pode selecionar uma ou mais opções.
+                    </p>
+
+
+                    <!-- Opções serão inseridas pelo JavaScript -->
+                    <div
+                        id="options"
+                        class="options"
+                    ></div>
+
+
+                    <!-- Campo "Outra" -->
+                    <div
+                        id="other"
+                        class="other"
+                    >
+
+                        <label
+                            for="otherInput"
+                            class="other-label"
+                        >
+                            Conte-nos qual:
+                        </label>
+
+
+                        <textarea
+                            id="otherInput"
+                            class="other-input"
+                            rows="2"
+                            maxlength="150"
+                            placeholder="Digite sua resposta..."
+                        ></textarea>
+
+
+                        <div class="character-count">
+                            <span id="characterCount">
+                                0
+                            </span>
+                            / 150
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Navegação -->
+                <div class="buttons">
+
+                    <button
+                        type="button"
+                        id="back"
+                        class="button button-back"
+                    >
+                        ← Voltar
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="next"
+                        class="button button-next"
+                    >
+                        Continuar →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 TELA FINAL
+            ========================== -->
+
+            <div
+                id="result"
+                class="result"
+            >
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+
+                <h2>
+                    Questionário concluído! 🎉
+                </h2>
+
+
+                <p>
+                    Obrigado por participar da pesquisa.
+                </p>
+
+
+                <div class="result-message">
+
+                    Suas respostas foram registradas
+                    com sucesso.
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="restart"
+                    class="button restart"
+                >
+                    ↻ Responder novamente
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Rodapé -->
+        <footer class="footer">
+
+            <span>
+                Pesquisa Digital
+            </span>
+
+            <span>
+                •
+            </span>
+
+            <span>
+                Projeto de teste
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
