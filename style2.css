@@ -9,13 +9,6 @@
 ========================================================= */
 
 :root {
-    color-scheme: dark;
-    --background-deep: #04040a;
-    --primary-dark: #5b3df5;
-    --secondary-dark: #00a9c7;
-    --glass-highlight: rgba(255, 255, 255, 0.065);
-    --focus-ring: rgba(124, 92, 255, 0.32);
-    --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.18);
 
     --background: #070711;
 
@@ -52,8 +45,7 @@
 
     --radius-small: 12px;
 
-    --transition: 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
-    --transition-smooth: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: 0.2s ease;
 
 }
 
@@ -128,7 +120,6 @@ body::before {
         );
 
     z-index: -3;
-    animation: ambient-glow 16s ease-in-out infinite alternate;
 
 }
 
@@ -192,11 +183,6 @@ body::before {
 }
 
 
-@keyframes ambient-glow {
-    from { opacity: 0.82; transform: scale(1); }
-    to { opacity: 1; transform: scale(1.04); }
-}
-
 @keyframes floating {
 
     0%,
@@ -231,7 +217,7 @@ body::before {
 
     margin: 0 auto;
 
-    padding: clamp(24px, 4vw, 42px) 20px;
+    padding: 30px 20px;
 
 }
 
@@ -244,7 +230,7 @@ body::before {
 
     text-align: center;
 
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 
     animation:
         fade-up 0.6s ease;
@@ -281,22 +267,11 @@ body::before {
         );
 
     box-shadow:
-        0 12px 45px rgba(124, 92, 255, 0.28),
-        0 0 0 1px rgba(255,255,255,0.08) inset;
-    position: relative;
-    isolation: isolate;
+        0 12px 45px
+        rgba(124, 92, 255, 0.35);
 
 }
 
-
-.logo::after {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255,255,255,.22), transparent 42%);
-    pointer-events: none;
-}
 
 .header h1 {
 
@@ -350,8 +325,7 @@ body::before {
         blur(25px);
 
     box-shadow:
-        var(--shadow),
-        0 1px 0 rgba(255,255,255,0.05) inset;
+        var(--shadow);
 
     animation:
         fade-up 0.7s ease;
@@ -372,8 +346,11 @@ body::before {
     pointer-events: none;
 
     background:
-        linear-gradient(135deg, rgba(255,255,255,0.055), transparent 42%),
-        radial-gradient(circle at 90% 0%, rgba(0,217,255,0.045), transparent 28%);
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.04),
+            transparent 40%
+        );
 
 }
 
@@ -575,7 +552,7 @@ body::before {
 
 .help {
 
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 
     color: var(--text-secondary);
 
@@ -657,8 +634,8 @@ body::before {
         var(--option-hover);
 
     box-shadow:
-        var(--shadow-soft),
-        0 0 0 1px rgba(255,255,255,0.025) inset;
+        0 8px 25px
+        rgba(0,0,0,0.12);
 
 }
 
@@ -726,10 +703,7 @@ body::before {
     border-radius: 7px;
 
     transition:
-        transform var(--transition),
-        border-color var(--transition),
-        background var(--transition),
-        box-shadow var(--transition);
+        all 0.2s ease;
 
 }
 
@@ -770,10 +744,7 @@ body::before {
         scale(0.4);
 
     transition:
-        transform var(--transition),
-        border-color var(--transition),
-        background var(--transition),
-        box-shadow var(--transition);
+        all 0.2s ease;
 
 }
 
@@ -893,7 +864,6 @@ body::before {
 
     background:
         rgba(255,255,255,0.045);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
 
     font-family: inherit;
 
@@ -991,8 +961,8 @@ body::before {
 
 .button:hover {
 
-    transform: translateY(-2px);
-    filter: brightness(1.06);
+    transform:
+        translateY(-2px);
 
 }
 
@@ -1349,16 +1319,7 @@ body::before {
     }
 
 
-    .logo::after {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255,255,255,.22), transparent 42%);
-    pointer-events: none;
-}
-
-.header h1 {
+    .header h1 {
 
         font-size: 27px;
 
@@ -1463,132 +1424,4 @@ body::before {
 
     }
 
-}
-
-
-/* =========================================================
-   25. POLIMENTO / ACESSIBILIDADE
-========================================================= */
-
-button,
-textarea {
-    -webkit-tap-highlight-color: transparent;
-}
-
-button:focus-visible,
-textarea:focus-visible,
-.option:focus-visible {
-    outline: none;
-    box-shadow:
-        0 0 0 3px var(--focus-ring),
-        0 0 0 1px var(--primary);
-}
-
-.option:hover .checkbox {
-    border-color: rgba(255,255,255,0.38);
-    transform: scale(1.04);
-}
-
-.option.selected .checkbox {
-    transform: scale(1.03);
-}
-
-.button-next,
-.restart {
-    position: relative;
-    overflow: hidden;
-}
-
-.button-next::before,
-.restart::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        110deg,
-        transparent 25%,
-        rgba(255,255,255,0.18) 50%,
-        transparent 75%
-    );
-    transform: translateX(-120%);
-    transition: transform .65s ease;
-}
-
-.button-next:hover::before,
-.restart:hover::before {
-    transform: translateX(120%);
-}
-
-.button > *,
-.button-next > *,
-.restart > * {
-    position: relative;
-    z-index: 1;
-}
-
-.progress-bar {
-    position: relative;
-}
-
-.progress-bar::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.22),
-        transparent
-    );
-    animation: progress-shine 2.2s linear infinite;
-}
-
-@keyframes progress-shine {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
-}
-
-::placeholder {
-    opacity: 0.75;
-}
-
-@media (hover: hover) {
-    .card {
-        transition:
-            transform var(--transition-smooth),
-            border-color var(--transition),
-            box-shadow var(--transition-smooth);
-    }
-
-    .card:hover {
-        border-color: rgba(255,255,255,0.14);
-        box-shadow:
-            var(--shadow),
-            0 0 70px rgba(124,92,255,0.055);
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        min-height: 100vh;
-    }
-
-    .option {
-        min-height: 58px;
-    }
-
-    .buttons {
-        gap: 10px;
-    }
-
-    .button {
-        min-height: 50px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    body::before,
-    .progress-bar::after {
-        animation: none !important;
-    }
 }
